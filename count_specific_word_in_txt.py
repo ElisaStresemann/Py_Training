@@ -1,4 +1,7 @@
-# Funktion zur Zählung mehrerer Wörter in einer Textdatei
+"""AUFGABE:
+Erstelle eine Funktion zur Zählung mehrerer Wörter in einer Textdatei, hier die Bible"""
+
+
 def count_words_in_file(filename, words_to_count):
     word_counts = {word: 0 for word in words_to_count}  # Wörter initialisieren
 
