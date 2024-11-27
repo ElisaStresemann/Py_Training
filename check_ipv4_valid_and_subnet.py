@@ -9,6 +9,7 @@ eine Funktion die nur die Adressen zurückgibt, die zu einem bestimmten Subnetz 
 # durch gueltige IP-Liste iterieren und mit Subnetz vergleichen
 
 import ipaddress
+# ipaddress Modul validiert die Adresse bei der Funktion ip_adress(ip) bereits automatisch -> ValueError: '256.0.0.3' does not appear to be an IPv4 or IPv6 address
 
 # Liste mit Bsp-IPv4-Adressen
 list_of_ips = ["192.168.1.1", "123.123.123.3", "256.0.0.3", "128.129.130.131", "192.141.455.0", "255.255.255.255", "192.168.2.1", "10.0.0.1", "192.168.3.5"] 
@@ -27,15 +28,13 @@ def is_valid_ipv4(ip):
     return True
 
 
-
 for ip in list_of_ips:
     print(f"Die IP {ip} ist gültig: {is_valid_ipv4(ip)}")
   
-
 valid_ips=[ip for ip in list_of_ips if is_valid_ipv4(ip)]
 print("\nGültige IP-Adressen:", valid_ips)
 
-for ip in list_of_ips:
+for ip in valid_ips:
     if ipaddress.ip_address(ip) in netz:
         print("Die IP gehört zum Subnetz.")
     else:
